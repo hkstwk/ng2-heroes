@@ -1,0 +1,11 @@
+.search-resulta {
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  width:195px;
+  padding: 5px;
+  margin-left: 20px;
+  background-color: white;
+  cursor: pointer;
+}
+
