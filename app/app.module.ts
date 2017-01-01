@@ -7,11 +7,13 @@ import {AppComponent} from "./app.component";
 import {HeroDetailComponent} from "./hero-detail.component";
 import {HeroesComponent} from "./heroes.component";
 import {HeroService} from "./hero.service";
+import {Auth} from "./auth.service";
 import {DashboardComponent} from "./dashboard.component";
 import {InMemoryWebApiModule} from "angular-in-memory-web-api";
 import {InMemoryDataService} from "./in-memory-data.service";
 import "./rxjs-extensions";
 import {HeroSearchComponent} from "./hero-search.component";
+import {AUTH_PROVIDERS} from "angular2-jwt";
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import {HeroSearchComponent} from "./hero-search.component";
   ],
   providers:    [
     HeroService,
+    AUTH_PROVIDERS,
+    Auth
   ],
   bootstrap:    [ AppComponent ]
 })
