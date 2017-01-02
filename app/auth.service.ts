@@ -18,22 +18,18 @@ export class Auth {
 
   public login() {
     // Call the show method to display the widget.
-    console.log('Starting logging in');
     this.lock.show();
-    console.log('Finished logging in');
   }
 
   public authenticated() {
     // Check if there's an unexpired JWT
     // This searches for an item in localStorage with key == 'id_token'
-    console.log('call to authenticated()')
     return tokenNotExpired();
   }
 
   public logout() {
     // Remove token from localStorage
     localStorage.removeItem('id_token');
-    console.log('logged out, id_token removed from local storage');
   }
 }
 

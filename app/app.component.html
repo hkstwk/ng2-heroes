@@ -1,18 +1,18 @@
 <div class="container">
+  <nav class="navbar">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li role="presentation" [routerLinkActive]="['active']"><a routerLink="/">Home</a></li>
+        <li role="presentation" [routerLinkActive]="['active']"><a routerLink="/dashboard">Dashboard</a></li>
+        <li role="presentation" [routerLinkActive]="['active']"><a routerLink="/heroes">Heroes</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li (click)="auth.login()" *ngIf="!auth.authenticated()"><span class="glyphicon glyphicon-log-in"></span> Login</li>
+        <li (click)="auth.logout()" *ngIf="auth.authenticated()"><span class="glyphicon glyphicon-log-out"></span> Logout</li>
+      </ul>
+    </div>
+  </nav>
   <div class="jumbotron">
-    <nav class="navbar">
-      <div class="container-fluid">
-        <ul class="nav navbar-nav">
-          <li role="presentation" [routerLinkActive]="['active']"><a routerLink="/">Home</a></li>
-          <li role="presentation" [routerLinkActive]="['active']"><a routerLink="/dashboard">Dashboard</a></li>
-          <li role="presentation" [routerLinkActive]="['active']"><a routerLink="/heroes">Heroes</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li (click)="auth.login()" *ngIf="!auth.authenticated()"><span class="glyphicon glyphicon-log-in"></span> Login</li>
-          <li (click)="auth.logout()" *ngIf="auth.authenticated()"><span class="glyphicon glyphicon-log-out"></span> Logout</li>
-        </ul>
-      </div>
-    </nav>
     <h1>{{title}}</h1>
     <ul class="nav nav-pills">
       <li role="presentation" [routerLinkActive]="['active']"><a routerLink="/dashboard">Dashboard</a></li>
