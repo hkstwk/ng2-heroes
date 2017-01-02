@@ -8,8 +8,8 @@
           <li role="presentation" [routerLinkActive]="['active']"><a routerLink="/heroes">Heroes</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li (click)="auth.login()" *ngIf="!auth.authenticated()"><span class="glyphicon glyphicon-user"></span> Login</li>
-          <li (click)="auth.logout()" *ngIf="auth.authenticated()"><span class="glyphicon glyphicon-log-in"></span> Logout</li>
+          <li (click)="auth.login()" *ngIf="!auth.authenticated()"><span class="glyphicon glyphicon-log-in"></span> Login</li>
+          <li (click)="auth.logout()" *ngIf="auth.authenticated()"><span class="glyphicon glyphicon-log-out"></span> Logout</li>
         </ul>
       </div>
     </nav>
