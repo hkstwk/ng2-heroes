@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from "@angular/core";
 import {Auth} from "./auth.service";
 
 @Component({
@@ -6,12 +6,10 @@ import {Auth} from "./auth.service";
   selector: 'my-app',
   providers: [Auth],
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.css'],
 })
 
 export class AppComponent {
   title = 'Tour of Heroes';
 
   constructor(private auth: Auth) {}
-
 }
