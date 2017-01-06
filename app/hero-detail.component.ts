@@ -6,6 +6,7 @@ import { Location }                 from '@angular/common';
 import { HeroService } from './hero.service';
 import 'rxjs/add/operator/switchMap';
 import {Hero} from "./hero";
+import {Auth} from "./auth.service";
 
 
 @Component({
@@ -20,7 +21,8 @@ export class HeroDetailComponent implements OnInit {
   constructor(
     private heroService: HeroService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private auth: Auth,
   ) {}
 
   ngOnInit(): void {

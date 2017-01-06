@@ -1,16 +1,21 @@
-<div id="search-component" class="col-xs-3">
-  <form>
-      <div class="input-group">
-        <span class="input-group-addon">
-          <i class="glyphicon glyphicon-search"></i>
-        </span>
-        <input class="form-control" type="text" #searchBox id="search-box" (keyup)="search(searchBox.value)" placeholder="Hero search..." />
-      </div>
-  </form>
-    <table class="table table-hover table-bordered table-condensed">
-    <tr *ngFor="let hero of heroes | async"
-       (click)="gotoDetail(hero)">
-      <td>{{hero.name}}</td>
-    </tr>
-  </table>
+<div class="alert alert-danger" *ngIf="!auth.authenticated()">
+  <p>You are not logged in</p>
+</div>
+<div *ngIf="auth.authenticated()">
+  <div id="search-component" class="col-xs-3">
+    <form>
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-search"></i>
+          </span>
+          <input class="form-control" type="text" #searchBox id="search-box" (keyup)="search(searchBox.value)" placeholder="Hero search..." />
+        </div>
+    </form>
+      <table class="table table-hover table-bordered table-condensed">
+      <tr *ngFor="let hero of heroes | async"
+         (click)="gotoDetail(hero)">
+        <td>{{hero.name}}</td>
+      </tr>
+    </table>
+  </div>
 </div>

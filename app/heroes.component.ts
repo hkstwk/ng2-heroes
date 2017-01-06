@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {Hero} from "./hero";
 import {HeroService} from "./hero.service";
 import {Router} from "@angular/router";
+import {Auth} from "./auth.service";
 
 @Component({
   moduleId: module.id,
@@ -14,7 +15,7 @@ export class HeroesComponent implements OnInit {
   heroes : Hero[];
   selectedHero: Hero;
 
-  constructor(private heroService: HeroService, private router: Router) {  }
+  constructor(private heroService: HeroService, private router: Router, private auth: Auth) {  }
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;

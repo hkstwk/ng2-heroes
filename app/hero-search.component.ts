@@ -4,6 +4,7 @@ import { Observable }        from 'rxjs/Observable';
 import { Subject }           from 'rxjs/Subject';
 import { HeroSearchService } from './hero-search.service';
 import { Hero }              from './hero';
+import {Auth} from "./auth.service";
 
 @Component({
   moduleId: module.id,
@@ -20,9 +21,11 @@ export class HeroSearchComponent implements OnInit {
 
   constructor(
     private heroSearchService: HeroSearchService,
-    private router: Router) {}
+    private router: Router,
+    private auth: Auth) {};
 
-    // Push a search term into the observable stream.
+
+  // Push a search term into the observable stream.
   search(term: string): void {
     this.searchTerms.next(term);
   }

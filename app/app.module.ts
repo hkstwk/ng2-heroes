@@ -14,6 +14,7 @@ import {InMemoryDataService} from "./in-memory-data.service";
 import "./rxjs-extensions";
 import {HeroSearchComponent} from "./hero-search.component";
 import {AUTH_PROVIDERS} from "angular2-jwt";
+import {ProfileComponent} from "./profile.component";
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import {AUTH_PROVIDERS} from "angular2-jwt";
     HeroDetailComponent,
     DashboardComponent,
     HeroSearchComponent,
+    ProfileComponent
   ],
   providers:    [
     HeroService,

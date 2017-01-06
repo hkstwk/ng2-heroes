@@ -3,14 +3,12 @@ import {Auth} from "./auth.service";
 
 @Component({
   moduleId: module.id,
-  selector: 'my-app',
+  selector: 'profile',
   providers: [Auth],
-  templateUrl: 'app.component.html',
+  templateUrl: 'profile.component.html',
 })
 
-export class AppComponent {
-  title = 'Tour of Heroes';
-
+export class ProfileComponent {
   private profile: any;
 
   constructor(private auth: Auth) {

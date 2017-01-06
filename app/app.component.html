@@ -7,8 +7,9 @@
         <li role="presentation" [routerLinkActive]="['active']"><a routerLink="/heroes">Heroes</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li (click)="auth.login()" *ngIf="!auth.authenticated()"><span class="glyphicon glyphicon-log-in"></span> Login</li>
-        <li (click)="auth.logout()" *ngIf="auth.authenticated()"><span class="glyphicon glyphicon-log-out"></span> Logout</li>
+        <li><a (click)="auth.login()" *ngIf="!auth.authenticated()"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a routerLink="/profile" *ngIf="auth.authenticated()"><img class="img-rounded" style="width: 25%;" src="{{profile.picture}}" /> Profile</a></li>
+        <li><a (click)="auth.logout()" *ngIf="auth.authenticated()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       </ul>
     </div>
   </nav>
