@@ -8,7 +8,9 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a (click)="auth.login()" *ngIf="!auth.authenticated()"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        <li><a routerLink="/profile" *ngIf="auth.authenticated()"><img class="img-rounded" style="width: 25%;" src="{{profile.picture}}" /> Profile</a></li>
+        <li><a routerLink="/profile" *ngIf="auth.authenticated()" data-toggle="tooltip" title="Show {{profile.given_name}}'s profile">
+          <img class="img-rounded" style="width: 35%;" src="{{profile.picture}}" />
+          {{profile.given_name}}</a></li>
         <li><a (click)="auth.logout()" *ngIf="auth.authenticated()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       </ul>
     </div>

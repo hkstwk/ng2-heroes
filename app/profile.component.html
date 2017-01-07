@@ -1,7 +1,7 @@
-<div class="alert alert-danger" *ngIf="!auth.authenticated()">
+<!--<div class="alert alert-danger" *ngIf="!auth.authenticated()">
   <p>You are not logged in</p>
-</div>
-<div *ngIf="auth.authenticated()">
+</div>-->
+<!--<div *ngIf="auth.authenticated()">-->
   <div class="row">
     <div class="col-md-2">
       <img class="img-circle" style="width: 100%;" src="{{profile.picture_large}}" />
@@ -10,6 +10,9 @@
       <h1>{{profile.nickname}}</h1>
       <p>Email: {{profile.name}}</p>
       <p>Last update: {{profile.created_at}}</p>
+      <p>Result = {{ result }}</p>
+      <p>Error = {{ error }} </p>
+      <p>Time = {{ time }} ms</p>
     </div>
   </div>
-</div>
+<!--</div>-->

@@ -15,6 +15,7 @@ import "./rxjs-extensions";
 import {HeroSearchComponent} from "./hero-search.component";
 import {AUTH_PROVIDERS} from "angular2-jwt";
 import {ProfileComponent} from "./profile.component";
+import {AuthGuard} from "./auth.guard";
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import {ProfileComponent} from "./profile.component";
   providers:    [
     HeroService,
     AUTH_PROVIDERS,
-    Auth
+    Auth,
+    AuthGuard
   ],
   bootstrap:    [ AppComponent ]
 })
