@@ -3,6 +3,35 @@
 </div>
 <div *ngIf="auth.authenticated()">
   <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm.value, myForm.valid)">
+        <div>
+          <label>Name</label>
+          <input type="text" formControlName="name">
+          <small [hidden]="myForm.controls.name.valid || (myForm.controls.name.pristine && !submitted)">
+            Name is required (minimum 5 characters).
+          </small>
+        </div>
+        <div formGroupName="address">
+          <label>Address</label>
+          <input type="text" formControlName="street">
+          <small [hidden]="myForm.controls.address.controls.street.valid || (myForm.controls.address.controls.street.pristine && !submitted)">
+            Street is required
+          </small>
+        </div>
+        <div formGroupName="address">
+          <label>Postcode</label>
+          <input type="text" formControlName="postcode">
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+      Form changes:
+      <div *ngFor="let event of events">
+        <pre>{{event | json }}</pre>
+      </div>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-2">
       <img class="img-circle" style="width: 100%;" src="{{profile.picture_large}}" />
     </div>
@@ -43,10 +72,11 @@
           <button class="btn btn-primary btn-block" (click)="doStuff(number1, number2, delay)">Go!</button>
         </div>
       </form>
-      <br>
-      <p>Result = {{ result }}</p>
-      <p>Error = {{ error }} </p>
-      <p>Time = {{ time }} ms</p>
+      <pre>
+        <p>Result = {{ result }}</p>
+        <p>Error = {{ error }} </p>
+        <p>Time = {{ time }} ms</p>
+      </pre>
     </div>
   </div>
 </div>
