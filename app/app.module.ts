@@ -19,7 +19,6 @@ import {AuthGuard} from "./auth.guard";
 import {TicketComponent} from "./ticket.component";
 import {TicketsComponent} from "./tickets.component";
 import {TicketService} from "./ticket.service";
-import {InMemoryTicketsDataService} from "./in-memory-tickets-data.service";
 
 
 @NgModule({
@@ -48,7 +47,7 @@ import {InMemoryTicketsDataService} from "./in-memory-tickets-data.service";
     Auth,
     AuthGuard
   ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:[ AppComponent ]
 })
 export class AppModule { }
 

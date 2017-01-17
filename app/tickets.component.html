@@ -2,11 +2,10 @@
 <div>
   <table class="table table-hover table-bordered">
     <tr *ngFor="let ticket of tickets" (click)="onSelect(ticket)" [class.selected]="ticket === selectedTicket">
-      <td><span class="badge">{{ticket.date}}</span></td>
-      <td>{{ticket.entries[0].category}}</td>
-      <td>{{ticket.entries[0].hours}}</td>
+      <td>{{ticket.date}}</td>
+      <td *ngFor="let x of ticket.entries">{{x.category}} {{x.hours}}</td>
       <td>
-        <button class="btn btn-danger btn-md" (click)="deleteHero(hero); $event.stopPropagation()">
+          <button class="btn btn-danger btn-md" (click)="deleteHero(hero); $event.stopPropagation()">
           <span class="glyphicon glyphicon-trash"></span>
         </button>
       </td>
