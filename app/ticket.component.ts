@@ -1,6 +1,7 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, Injectable} from "@angular/core";
 import {FormBuilder, Validators, FormGroup, FormArray} from "@angular/forms";
 import {Ticket} from "./ticket.interface";
+import {Http, Headers} from "@angular/http";
 
 @Component({
   moduleId: module.id,
@@ -12,16 +13,13 @@ import {Ticket} from "./ticket.interface";
 export class TicketComponent implements OnInit {
 
   public ticketForm: FormGroup; // form model
-  public model: any
 
-  constructor(private _fb: FormBuilder){
+  constructor(private _fb: FormBuilder){ }
 
-  }
 
   ngOnInit(){
-    //TODO initialize
     this.ticketForm = this._fb.group({
-      date: ['13 januari 2017', [Validators.required]],
+      date: [new Date().toLocaleDateString(), [Validators.required]],
       entries: this._fb.array([this.initEntry()])
     });
   }
@@ -47,7 +45,6 @@ export class TicketComponent implements OnInit {
   }
 
   save(model: Ticket){
-    this.model = (this.ticketForm.getRawValue());
     console.log(model);
   }
 }

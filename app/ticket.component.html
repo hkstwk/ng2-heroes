@@ -1,5 +1,13 @@
 <div class="row">
-  <div class="col-xs-5 col-xs-offset-1">
+  <div class="col-xs-4">
+    <h4>Tickets</h4>
+    <div>
+      <pre>
+        {{ ticketForm.value | json }}
+      </pre>
+    </div>
+  </div>
+  <div class="col-xs-4">
     <h4>Add ticket</h4>
     <form [formGroup]="ticketForm" novalidate (ngSubmit)="save(ticketForm)">
       <div class="form-group">
@@ -67,16 +75,12 @@
       </div>
     </form>
   </div>
-  <div class="col-xs-5 col-xs-offset-1">
+  <div class="col-xs-4">
+    <h4>FormControl value, json format</h4>
     <div>
       <pre>
         {{ ticketForm.value | json }}
       </pre>
-    </div>
-    <div>
-        <pre>
-          {{ model | json }}
-        </pre>
     </div>
   </div>
 </div>

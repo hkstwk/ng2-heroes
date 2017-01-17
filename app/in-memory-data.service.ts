@@ -16,16 +16,89 @@ export class InMemoryDataService implements InMemoryDbService {
     return {heroes};
   }
 
-  createVerlofRechten() {
-    let balance = {
-      id: 1,
-      userId: 1,
-      holidays: 200,
-      extraLeave: 104,
-      bought: 64,
-      compensation: 0,
-      leaveTaken: 0
-    };
-    return {balance};
+  createTicketDB() {
+    let tickets = [
+      {
+        "date": "9-1-2017",
+        "entries": [
+          {
+            "category": "Work",
+            "hours": "8"
+          }
+        ]
+      },
+      {
+        "date": "10-1-2017",
+        "entries": [
+          {
+            "category": "Work",
+            "hours": "12"
+          }
+        ]
+      },
+      {
+        "date": "11-1-2017",
+        "entries": [
+          {
+            "category": "Work",
+            "hours": "9"
+          }
+        ]
+      },
+      {
+        "date": "12-1-2017",
+        "entries": [
+          {
+            "category": "Work",
+            "hours": "8"
+          }
+        ]
+      },
+      {
+        "date": "13-1-2017",
+        "entries": [
+          {
+            "category": "Work",
+            "hours": "8"
+          }
+        ]
+      },
+      {
+        "date": "16-1-2017",
+        "entries": [
+          {
+            "category": "Work",
+            "hours": "9"
+          }
+        ]
+      },
+      {
+        "date": "17-1-2017",
+        "entries": [
+          {
+            "category": "Work",
+            "hours": "8"
+          },
+          {
+            "category": "Compensation",
+            "hours": "2"
+          }
+        ]
+      },
+      {
+        "date": "18-1-2017",
+        "entries": [
+          {
+            "category": "Work",
+            "hours": "4"
+          },
+          {
+            "category": "Leave",
+            "hours": "4"
+          }
+        ]
+      }
+    ];
+    return {tickets};
   }
 }

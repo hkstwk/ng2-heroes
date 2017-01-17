@@ -1,6 +1,6 @@
 export interface Ticket {
   date: string;       // required
-  entries: Entry[];
+  entries: Entry[];   // required at least once
 }
 
 export interface Entry {
