@@ -16,6 +16,7 @@ import {HeroSearchComponent} from "./hero-search.component";
 import {AUTH_PROVIDERS} from "angular2-jwt";
 import {ProfileComponent} from "./profile.component";
 import {AuthGuard} from "./auth.guard";
+import {TicketComponent} from "./ticket.component";
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import {AuthGuard} from "./auth.guard";
     HeroDetailComponent,
     DashboardComponent,
     HeroSearchComponent,
-    ProfileComponent
+    ProfileComponent,
+    TicketComponent,
   ],
   providers:    [
     HeroService,

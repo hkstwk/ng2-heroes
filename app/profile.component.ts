@@ -2,7 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
 import {Auth} from "./auth.service";
 import {subscribeToResult} from "rxjs/util/subscribeToResult";
-import { User } from "./promise.interface";
+import { User } from "./user.interface";
 
 @Component({
   moduleId: module.id,
@@ -46,7 +46,7 @@ export class ProfileComponent implements OnInit {
         postcode: ['8000']
       })
     });
-    (<FormControl>this.myForm).setValue(this.people, {onlySelf: true});
+    (<FormGroup>this.myForm).setValue(this.people, {onlySelf: true});
     this.subscribeToFormChanges();
   }
 

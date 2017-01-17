@@ -5,6 +5,7 @@ import {HeroesComponent} from "./heroes.component";
 import {HeroDetailComponent} from "./hero-detail.component";
 import {ProfileComponent} from "./profile.component";
 import {AuthGuard} from "./auth.guard";
+import {TicketComponent} from "./ticket.component";
 
 
 const routes: Routes = [
@@ -29,6 +30,10 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'ticket',
+    component: TicketComponent
   },
   {
     path: '**',
