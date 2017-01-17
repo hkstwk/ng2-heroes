@@ -1,7 +1,6 @@
-import {Component, OnInit, Injectable} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {FormBuilder, Validators, FormGroup, FormArray} from "@angular/forms";
 import {Ticket} from "./ticket.interface";
-import {Http, Headers} from "@angular/http";
 
 @Component({
   moduleId: module.id,

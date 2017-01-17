@@ -1,9 +1,9 @@
-export interface Ticket {
+export class Ticket {
   date: string;       // required
   entries: Entry[];   // required at least once
 }
 
-export interface Entry {
+export class Entry {
   category: string;   // required
   hours: number;      // required, numeric
 }

@@ -1,4 +1,5 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
+
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     let heroes = [
@@ -13,10 +14,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {id: 19, name: 'Magma'},
       {id: 20, name: 'Tornado'}
     ];
-    return {heroes};
-  }
 
-  createTicketDB() {
     let tickets = [
       {
         "date": "9-1-2017",
@@ -99,6 +97,6 @@ export class InMemoryDataService implements InMemoryDbService {
         ]
       }
     ];
-    return {tickets};
+    return {heroes, tickets};
   }
 }

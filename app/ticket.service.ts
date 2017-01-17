@@ -12,7 +12,7 @@ export class TicketService {
   constructor(private http: Http) {
   }
 
-  getHeroes(): Promise<Ticket[]> {
+  getTickets(): Promise<Ticket[]> {
     return this.http.get(this.ticketsUrl)
       .toPromise()
       .then(response => response.json().data as Ticket[])

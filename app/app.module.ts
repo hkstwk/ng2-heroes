@@ -17,6 +17,9 @@ import {AUTH_PROVIDERS} from "angular2-jwt";
 import {ProfileComponent} from "./profile.component";
 import {AuthGuard} from "./auth.guard";
 import {TicketComponent} from "./ticket.component";
+import {TicketsComponent} from "./tickets.component";
+import {TicketService} from "./ticket.service";
+import {InMemoryTicketsDataService} from "./in-memory-tickets-data.service";
 
 
 @NgModule({
@@ -36,9 +39,11 @@ import {TicketComponent} from "./ticket.component";
     HeroSearchComponent,
     ProfileComponent,
     TicketComponent,
+    TicketsComponent,
   ],
   providers:    [
     HeroService,
+    TicketService,
     AUTH_PROVIDERS,
     Auth,
     AuthGuard
