@@ -1,21 +1,29 @@
-<h4>Tickets</h4>
-<div>
-  <table class="table table-hover table-bordered">
-    <tr *ngFor="let ticket of tickets" (click)="onSelect(ticket)" [class.selected]="ticket === selectedTicket">
-      <td>{{ticket.date}}</td>
-      <td>
-        <table>
-          <tr *ngFor="let x of ticket.entries">
-              <td>{{x.category}}</td>
-            <td>&nbsp; &nbsp; {{x.hours}}</td>
-          </tr>
-        </table>
-      </td>
-      <td>
-          <button class="btn btn-danger btn-md" (click)="deleteHero(hero); $event.stopPropagation()">
-          <span class="glyphicon glyphicon-trash"></span>
-        </button>
-      </td>
-    </tr>
-  </table>
+<div class="row">
+  <div class="col-xs-7">
+    <h4>Tickets</h4>
+    <div>
+      <table class="table table-hover table-bordered">
+        <tr *ngFor="let ticket of tickets" (click)="onSelect(ticket)" [class.selected]="ticket === selectedTicket">
+          <td>{{ticket.date}}</td>
+          <td>
+            <table>
+              <tr *ngFor="let x of ticket.entries">
+                  <td>{{x.category}}</td>
+                <td>&nbsp; &nbsp; {{x.hours}}</td>
+              </tr>
+            </table>
+          </td>
+          <td>
+              <button class="btn btn-danger btn-md" (click)="deleteTicket(ticket); $event.stopPropagation()">
+              <span class="glyphicon glyphicon-trash"></span>
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="col-xs-5">
+    <ticket #ticket (onSaved)="onSaved($event)"></ticket>
+  </div>
 </div>
+

@@ -23,4 +23,12 @@ export class TicketService {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
   }
+
+  deleteTicket(date: string): Promise<void> {
+    const url = `${this.ticketsUrl}/${date}`;
+    return this.http.delete(url, {headers: this.headers})
+      .toPromise()
+      .then(() => null)
+      .catch(TicketService.handleError);
+  }
 }

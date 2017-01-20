@@ -1,7 +1,6 @@
-import {Component, OnInit, Input} from "@angular/core";
+import {Component, OnInit, Output, EventEmitter} from "@angular/core";
 import {FormBuilder, Validators, FormGroup, FormArray} from "@angular/forms";
 import {Ticket} from "./ticket.interface";
-import {TicketsComponent} from "./tickets.component";
 
 @Component({
   moduleId: module.id,
@@ -13,6 +12,7 @@ import {TicketsComponent} from "./tickets.component";
 export class TicketComponent implements OnInit {
 
   public ticketForm: FormGroup; // form model
+  @Output() onSaved = new EventEmitter<any>();
 
   constructor(private _fb: FormBuilder){ }
 
@@ -45,6 +45,7 @@ export class TicketComponent implements OnInit {
   }
 
   save(model: Ticket){
+    this.onSaved.emit(model);
     console.log(model);
   }
 }

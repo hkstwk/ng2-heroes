@@ -1,82 +1,67 @@
-<div class="row">
-  <div class="col-xs-4">
-    <tickets>Loading tickets...</tickets>
+<h4>Add ticket</h4>
+<form [formGroup]="ticketForm" novalidate (ngSubmit)="save(ticketForm)">
+  <div class="form-group">
+    <label for="date" class="control-label">Date</label>
+    <input type="text" class="form-control"
+             formControlName="date"
+             id="date">
+    <!--display error message if name is not valid-->
+    <small *ngIf="!ticketForm.controls.date.valid" class="text-danger">
+      Date is required.
+    </small>
   </div>
-  <div class="col-xs-4">
-    <h4>Add ticket</h4>
-    <form [formGroup]="ticketForm" novalidate (ngSubmit)="save(ticketForm)">
-      <div class="form-group">
-        <label for="date" class="control-label">Date</label>
-        <input type="text" class="form-control"
-                 formControlName="date"
-                 id="date">
-        <!--display error message if name is not valid-->
-        <small *ngIf="!ticketForm.controls.date.valid" class="text-danger">
-          Date is required.
-        </small>
-      </div>
 
-      <div formArrayName="entries">
-        <div *ngFor="let address of ticketForm.controls.entries.controls; let i=index">
-          <div [formGroupName]="i">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <span>Entry {{i + 1}}</span>
-                <span *ngIf="ticketForm.controls.entries.controls.length > 1"
-                      (click)="removeEntry(i)">
-                   <span class="glyphicon glyphicon-remove pull-right"></span>
-                </span>
+  <div formArrayName="entries">
+    <div *ngFor="let address of ticketForm.controls.entries.controls; let i=index">
+      <div [formGroupName]="i">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <span>Entry {{i + 1}}</span>
+            <span *ngIf="ticketForm.controls.entries.controls.length > 1"
+                  (click)="removeEntry(i)">
+               <span class="glyphicon glyphicon-remove pull-right"></span>
+            </span>
+          </div>
+          <div class="panel-body">
+            <div class="form-group">
+              <label for="category"  class="control-label">Category</label>
+              <div>
+                <input type="text" class="form-control" formControlName="category"
+                       id="category"
+                       required
+                       name="category">
               </div>
-              <div class="panel-body">
-                <div class="form-group">
-                  <label for="category"  class="control-label">Category</label>
-                  <div>
-                    <input type="text" class="form-control" formControlName="category"
-                           id="category"
-                           required
-                           name="category">
-                  </div>
-                  <small [hidden]="ticketForm.controls.entries.controls[i].controls.category.valid"  class="text-danger">
-                    Category is required
-                  </small>
-                </div>
-                <div class="form-group">
-                  <label for="hours"  class="control-label">Hours</label>
-                  <div>
-                    <input type="text" class="form-control" formControlName="hours"
-                           id="hours"
-                           required
-                           name="hours">
-                  </div>
-                  <small [hidden]="ticketForm.controls.entries.controls[i].controls.hours.valid" class="text-danger">
-                    Hours is required
-                  </small>
-                </div>
+              <small [hidden]="ticketForm.controls.entries.controls[i].controls.category.valid"  class="text-danger">
+                Category is required
+              </small>
+            </div>
+            <div class="form-group">
+              <label for="hours"  class="control-label">Hours</label>
+              <div>
+                <input type="text" class="form-control" formControlName="hours"
+                       id="hours"
+                       required
+                       name="hours">
               </div>
+              <small [hidden]="ticketForm.controls.entries.controls[i].controls.hours.valid" class="text-danger">
+                Hours is required
+              </small>
             </div>
           </div>
         </div>
       </div>
-
-      <div>
-        <a style="cursor: default" (click)="addEntry()">
-          Add another address +
-        </a>
-      </div>
-      <div class="form-group">
-        <button class="btn btn-lg btn-primary pull-right"
-                style="width: 10em;"
-                [disabled]="!ticketForm.valid">Go!</button>
-      </div>
-    </form>
-  </div>
-  <div class="col-xs-4">
-    <h4>FormControl value, json format</h4>
-    <div>
-      <pre>
-        {{ ticketForm.value | json }}
-      </pre>
     </div>
   </div>
-</div>
+
+  <div>
+    <a style="cursor: default" (click)="addEntry()">
+      Add another address +
+    </a>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-lg btn-primary pull-right"
+            style="width: 10em;"
+            [disabled]="!ticketForm.valid">Go!</button>
+  </div>
+</form>
 

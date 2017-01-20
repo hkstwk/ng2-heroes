@@ -28,4 +28,18 @@ export class TicketsComponent implements OnInit {
   ngOnInit(): void {
     this.getTickets();
   }
+
+  onSaved(model: any){
+    this.tickets.push(model.value);
+  }
+
+  deleteTicket(ticket: Ticket): void {
+    this.ticketService
+      .deleteTicket(ticket.date)
+      .then(() => {
+        this.tickets = this.tickets.filter(t => t !== ticket);
+        if (this.selectedTicket === ticket) { this.selectedTicket = null; }
+      });
+  }
+
 }
