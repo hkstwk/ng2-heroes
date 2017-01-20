@@ -14,11 +14,8 @@ import {TicketService} from "./ticket.service";
 export class TicketsComponent implements OnInit {
   tickets: Ticket[];
   selectedTicket: Ticket;
-  @Input() newTicket: Ticket;
 
-  constructor(private ticketService: TicketService, private router: Router, private auth: Auth) {
-    this.newTicket = null;
-  }
+  constructor(private ticketService: TicketService, private router: Router, private auth: Auth) {}
 
   onSelect(ticket: Ticket): void {
     this.selectedTicket = ticket;

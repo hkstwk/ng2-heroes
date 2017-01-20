@@ -6,7 +6,7 @@ import {TicketsComponent} from "./tickets.component";
 @Component({
   moduleId: module.id,
   selector: 'ticket',
-  providers: [TicketsComponent],
+  providers: [],
   templateUrl: 'ticket.component.html',
 })
 
