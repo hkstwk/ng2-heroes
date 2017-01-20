@@ -1,4 +1,4 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, Input} from "@angular/core";
 import {Router} from "@angular/router";
 import {Auth} from "./auth.service";
 import {Ticket} from "./ticket.interface";
@@ -14,8 +14,10 @@ import {TicketService} from "./ticket.service";
 export class TicketsComponent implements OnInit {
   tickets: Ticket[];
   selectedTicket: Ticket;
+  @Input() newTicket: Ticket;
 
   constructor(private ticketService: TicketService, private router: Router, private auth: Auth) {
+    this.newTicket = null;
   }
 
   onSelect(ticket: Ticket): void {

@@ -1,17 +1,18 @@
 import {Component, OnInit, Input} from "@angular/core";
 import {FormBuilder, Validators, FormGroup, FormArray} from "@angular/forms";
 import {Ticket} from "./ticket.interface";
+import {TicketsComponent} from "./tickets.component";
 
 @Component({
   moduleId: module.id,
   selector: 'ticket',
-  providers: [],
+  providers: [TicketsComponent],
   templateUrl: 'ticket.component.html',
 })
 
 export class TicketComponent implements OnInit {
 
-  @Input() public ticketForm: FormGroup; // form model
+  public ticketForm: FormGroup; // form model
 
   constructor(private _fb: FormBuilder){ }
 
