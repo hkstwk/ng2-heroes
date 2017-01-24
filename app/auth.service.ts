@@ -17,6 +17,7 @@ export class Auth {
           throw new Error(error);
         }
         localStorage.setItem('id_token', authResult.idToken);
+        localStorage.setItem('accessToken', authResult.accessToken);
         localStorage.setItem('profile', JSON.stringify(profile));
       });
     });
@@ -36,6 +37,7 @@ export class Auth {
   public logout() {
     // Remove token from localStorage
     localStorage.removeItem('id_token');
+    localStorage.removeItem('accessToken');
     localStorage.removeItem('profile');
   }
 }

@@ -6,6 +6,7 @@
         <li role="presentation" [routerLinkActive]="['active']"><a routerLink="/dashboard">Dashboard</a></li>
         <li role="presentation" [routerLinkActive]="['active']"><a routerLink="/heroes">Heroes</a></li>
         <li role="presentation" [routerLinkActive]="['active']"><a routerLink="/tickets">Tickets</a></li>
+        <li role="presentation" [routerLinkActive]="['active']"><a routerLink="/jwt">JWT</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a (click)="auth.login()" *ngIf="!auth.authenticated()"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

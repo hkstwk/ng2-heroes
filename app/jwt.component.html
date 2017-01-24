@@ -1,0 +1,13 @@
+<div class="alert alert-danger" *ngIf="!auth.authenticated()">
+  <p>You are not logged in</p>
+</div>
+<div *ngIf="auth.authenticated()">
+  <div class="row">
+    <div class="col-md-6">
+      <pre>{{token}}</pre>
+    </div>
+    <div class="col-md-6">
+      <pre>{{decodedToken | json}}</pre>
+    </div>
+  </div>
+</div>

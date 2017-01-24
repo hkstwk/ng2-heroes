@@ -19,6 +19,7 @@ import {AuthGuard} from "./auth.guard";
 import {TicketComponent} from "./ticket.component";
 import {TicketsComponent} from "./tickets.component";
 import {TicketService} from "./ticket.service";
+import {JwtComponent} from "./jwt.component";
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import {TicketService} from "./ticket.service";
     ProfileComponent,
     TicketComponent,
     TicketsComponent,
+    JwtComponent,
   ],
   providers:    [
     HeroService,

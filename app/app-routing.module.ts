@@ -6,6 +6,7 @@ import {HeroDetailComponent} from "./hero-detail.component";
 import {ProfileComponent} from "./profile.component";
 import {AuthGuard} from "./auth.guard";
 import {TicketsComponent} from "./tickets.component";
+import {JwtComponent} from "./jwt.component";
 
 
 const routes: Routes = [
@@ -34,6 +35,11 @@ const routes: Routes = [
   {
     path: 'tickets',
     component: TicketsComponent
+  },
+  {
+    path: 'jwt',
+    component: JwtComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'tickets/:date',
