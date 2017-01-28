@@ -7,7 +7,18 @@
       <pre>{{token}}</pre>
     </div>
     <div class="col-md-6">
-      <pre>{{decodedToken | json}}</pre>
+      <div>
+        <span>token header: </span><pre>{{tokenHeader | json}}</pre>
+      </div>
+      <div>
+        <span>token payload: </span><pre>{{decodedToken | json}}</pre>
+      </div>
+      <div>
+        <span>tokenExpirationDate: </span><pre>{{tokenExpirationDate}}</pre>
+      </div>
+      <div>
+        <span>isTokenExpired: </span><pre>{{isTokenExpired}}</pre>
+      </div>
     </div>
   </div>
 </div>
