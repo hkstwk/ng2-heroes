@@ -25,6 +25,26 @@ export class JwtComponent {
     // this.decodedToken = JSON.parse(this.jwtHelper.urlBase64Decode(this.token.split('.')[1]));
     this.tokenExpirationDate = this.jwtHelper.getTokenExpirationDate(this.token);
     this.isTokenExpired = this.jwtHelper.isTokenExpired(this.token);
+    this.verifyToken(this.token);
+  }
+
+  verifyToken(token: any){
+    var header = token.split('.')[0];
+    var payload = token.split('.')[1];
+    var signature = token.split('.')[2];
+    console.log(token);
+    console.log(header);
+    console.log(payload);
+
+    var tokenWithoutSignature = header + '.' +  payload;
+    console.log(tokenWithoutSignature);
+
+    var cryptoJS = require("../node_modules/crypto-js/crypto-js.js");
+    // var correctSignature = cryptoJS.HmacSHA256(tokenWithoutSignature);
+
+    console.log(signature);
+    // console.log(correctSignature);
+
   }
 
   parseJwt (token: any) {
