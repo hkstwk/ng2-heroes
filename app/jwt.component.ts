@@ -40,6 +40,7 @@ export class JwtComponent {
     console.log(tokenWithoutSignature);
 
     var cryptoJS = require("../node_modules/crypto-js/crypto-js.js");
+    console.log(atob(cryptoJS.HmacSHA256(tokenWithoutSignature, "rBbZZbFKPpk-Hu4hnv1lBwQxkropr_U4aLyZUEdyUyFtjl02lR9o1Og4cAaQsRNJ")));
     // var correctSignature = cryptoJS.HmacSHA256(tokenWithoutSignature);
 
     console.log(signature);
