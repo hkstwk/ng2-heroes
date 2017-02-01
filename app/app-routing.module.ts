@@ -39,7 +39,7 @@ const routes: Routes = [
   {
     path: 'jwt',
     component: JwtComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'tickets/:date',
