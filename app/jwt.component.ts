@@ -6,6 +6,7 @@ import {JwtHelper} from 'angular2-jwt';
   moduleId: module.id,
   selector: 'jwt',
   templateUrl: 'jwt.component.html',
+  styleUrls: [ 'jwt.component.css' ],
 })
 
 

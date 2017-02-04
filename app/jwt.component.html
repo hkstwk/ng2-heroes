@@ -4,20 +4,36 @@
 <div>
   <div class="row">
     <div class="col-md-6">
-      <span>Json Web Token: </span><pre>{{token}}</pre>
+      <div class="panel panel-default">
+        <div class="panel-heading">JSON Web Token</div>
+        <div class="panel-body">{{token}}</div>
+      </div>
     </div>
     <div class="col-md-6">
-      <div>
-        <span>token header: </span><pre>{{tokenHeader | json}}</pre>
+      <div class="panel panel-default">
+        <div class="panel-heading">Header</div>
+        <div class="panel-body">{{tokenHeader | json}}</div>
       </div>
-      <div>
-        <span>token payload: </span><pre>{{decodedToken | json}}</pre>
+      <div class="panel panel-default">
+        <div class="panel-heading">Payload</div>
+        <div class="panel-body">{{decodedToken | json}}</div>
       </div>
-      <div>
-        <span>tokenExpirationDate: </span><pre>{{tokenExpirationDate}}</pre>
+      <div class="panel panel-default">
+        <div class="panel-heading">Expiration date</div>
+        <div class="panel-body">{{tokenExpirationDate}}</div>
       </div>
-      <div>
-        <span>isTokenExpired: </span><pre>{{isTokenExpired}}</pre>
+      <div class="panel panel-default">
+        <div class="panel-heading">Expired?</div>
+        <div class="panel-body">{{isTokenExpired}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-body panel-body-signature">
+          <span class="glyphicon glyphicon-ok-circle"></span>
+          verifySignature to be placed here soon</div>
       </div>
     </div>
   </div>
