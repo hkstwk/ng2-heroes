@@ -3,8 +3,20 @@
 
 }
 
+pre {
+  border: none;
+  background-color: inherit;
+}
+
 .panel-body-signature {
-  background-color: cornflowerblue;
+  background-color: green;
+  color: white;
+  text-align: center;
+  font-size: x-large;
+}
+
+.panel-body-signature-nok {
+  background-color: red;
   color: white;
   text-align: center;
   font-size: x-large;
