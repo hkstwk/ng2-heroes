@@ -1,0 +1,11 @@
+.panel-body  {
+  word-break:break-all;
+
+}
+
+.panel-body-signature {
+  background-color: cornflowerblue;
+  color: white;
+  text-align: center;
+  font-size: x-large;
+}
