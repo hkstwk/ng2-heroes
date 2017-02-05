@@ -54,12 +54,6 @@ export class JwtComponent {
         .replace(/\//g,"_").replace(/\+/g,"-").replace(/=+$/g,"")
       ;
 
-    console.log('token = ' + token);
-    console.log('header = ' + header);
-    console.log('payload = ' + payload);
-    console.log('original signature = ' + this.signature);
-    console.log('new signature = ' + this.receivedSignature);
-
     return (this.signature == this.receivedSignature);
   }
 
