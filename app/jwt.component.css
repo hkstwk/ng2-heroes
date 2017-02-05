@@ -1,3 +1,7 @@
+#tokenPanel {
+  font-size: large;
+}
+
 .panel-body  {
   word-break:break-all;
 
