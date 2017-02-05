@@ -21,3 +21,19 @@ pre {
   text-align: center;
   font-size: x-large;
 }
+
+.jwtHeader{
+  color: red;
+}
+
+.jwtPayload{
+  color: purple;
+}
+
+.jwtSignature{
+  color: dodgerblue;
+}
+
+.jwtSeperator{
+  color: black;
+}

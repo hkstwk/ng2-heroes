@@ -6,7 +6,13 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">JSON Web Token</div>
-        <div class="panel-body">{{token}}</div>
+        <div contenteditable class="panel-body">
+          <div class="jwtHeader">{{header}}</div>
+          <div class="jwtSeperator">.</div>
+          <div class="jwtPayload">{{payload}}</div>
+          <div class="jwtSeperator">.</div>
+          <div class="jwtSignature">{{signature}}</div>
+        </div>
       </div>
       <div class="panel panel-default">
         <div class="panel-heading">Expiration date</div>
@@ -24,15 +30,15 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">Header</div>
-        <div contenteditable class="panel-body"><pre>{{tokenHeader | json}}</pre></div>
+        <div contenteditable class="panel-body"><pre class="jwtHeader">{{headerJSON | json}}</pre></div>
       </div>
       <div class="panel panel-default">
         <div class="panel-heading">Payload</div>
-        <div contenteditable class="panel-body"><pre>{{decodedToken | json}}</pre></div>
+        <div contenteditable class="panel-body"><pre class="jwtPayload">{{payloadJSON | json}}</pre></div>
       </div>
       <div class="panel panel-default">
         <div class="panel-heading">Correct signature</div>
-        <div class="panel-body"><pre>{{signature}}</pre></div>
+        <div class="panel-body"><pre class="jwtSignature">{{signature}}</pre></div>
       </div>
     </div>
   </div>
