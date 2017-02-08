@@ -17,6 +17,7 @@ export class JwtComponent {
   private headerJSON: any;
   private payload: any;
   private payloadJSON: any;
+  private payloadJSONPretty: any;
   private signature: any;
   private tokenExpirationDate: any;
   private isTokenExpired: boolean;
@@ -31,6 +32,7 @@ export class JwtComponent {
       this.headerJSON = JSON.parse(this.jwtHelper.urlBase64Decode(this.header));
       this.payload = this.token.split('.')[1];
       this.payloadJSON = JSON.parse(this.jwtHelper.urlBase64Decode(this.payload));
+      this.payloadJSONPretty = JSON.stringify(this.payloadJSON, null, 4);
       this.signature = this.token.split('.')[2];
       this.tokenExpirationDate = this.jwtHelper.getTokenExpirationDate(this.token);
       this.isTokenExpired = this.jwtHelper.isTokenExpired(this.token);
@@ -55,6 +57,10 @@ export class JwtComponent {
       ;
 
     return (this.signature == this.receivedSignature);
+  }
+
+  toggle(){
+    this.isValid = !this.isValid;
   }
 
 }
