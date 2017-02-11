@@ -19,7 +19,7 @@
         <div class="panel-body">{{jwt.isTokenExpired}}</div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-heading">Received signature</div>
+        <div class="panel-heading">Manipulated signature</div>
         <div class="panel-body"><pre class="jwtSignature">{{receivedSignature}}</pre></div>
       </div>
     </div>
@@ -30,10 +30,10 @@
       </div>
       <div class="panel panel-default">
         <div class="panel-heading">Payload</div>
-        <div class="panel-body"><textarea id="payload" spellcheck="false" class="jwtPayload" (input)="base64Encode('harm');toggle()">{{jwt.payloadJSONPretty}}</textarea></div>
+        <div class="panel-body"><textarea id="payload" spellcheck="false" class="jwtPayload" [(ngModel)]="jwt.payloadJSONPretty" (input)="base64Encode()"></textarea></div>
       </div>
       <div class="panel panel-default">
-        <div class="panel-heading">Correct signature</div>
+        <div class="panel-heading">Original signature</div>
         <div class="panel-body"><pre class="jwtSignature">{{jwt.signature}}</pre></div>
       </div>
     </div>

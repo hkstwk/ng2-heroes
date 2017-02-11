@@ -4,7 +4,6 @@
 
 .panel-body  {
   word-break:break-all;
-
 }
 
 pre {
@@ -42,7 +41,17 @@ pre {
   color: black;
 }
 
-#header.jwtHeader, #payload.jwtPayload{
+textarea#header{
+  width: 100%;
+  height: 6em;
+  resize: none;
+  border: none;
+  outline: none;
+  padding: 0px;
+  font-family: monospace;
+}
+
+textarea#payload{
   width: 100%;
   height: 10em;
   resize: none;
@@ -51,3 +60,4 @@ pre {
   padding: 0px;
   font-family: monospace;
 }
+

@@ -22,20 +22,18 @@ export class JwtComponent {
     this.jwt.isValid = this.verifyToken(this.jwt.token);
   }
 
-  base64Encode(str2Encode : string) {
-    console.log(str2Encode + " ==> base64 encode is " + btoa(this.jwt.payloadJSONPretty));
-    return btoa(str2Encode);
+  base64Encode() {
+    let changedPayload = this.jwt.payloadJSONPretty.replace(/\s/g, '');
+    this.jwt.payload = btoa(changedPayload).replace(/\//g,"_").replace(/\+/g,"-").replace(/=+$/g,"");
+    this.jwt.isValid = this.verifyToken(this.jwt.token);
   }
 
   verifyToken(token: string) : boolean {
     let cryptoJS = require("../node_modules/crypto-js/crypto-js.js");
 
-    let header = token.split('.')[0];
-    let payload = token.split('.')[1];
-
     this.receivedSignature =
       cryptoJS.HmacSHA256(
-          header + '.' + payload,
+          this.jwt.header + '.' + this.jwt.payload,
           "rBbZZbFKPpk-Hu4hnv1lBwQxkropr_U4aLyZUEdyUyFtjl02lR9o1Og4cAaQsRNJ"
         )
         .toString(cryptoJS.enc.Base64)
@@ -44,9 +42,4 @@ export class JwtComponent {
 
     return (this.jwt.signature == this.receivedSignature);
   }
-
-  toggle(){
-    this.jwt.isValid = !this.jwt.isValid;
-  }
-
 }
