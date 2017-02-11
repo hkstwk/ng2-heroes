@@ -26,11 +26,11 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">Header</div>
-        <div contenteditable class="panel-body"><pre class="jwtHeader">{{jwt.headerJSON | json}}</pre></div>
+        <div class="panel-body"><textarea id="header" spellcheck="false" class="jwtHeader">{{jwt.headerJSON | json}}</textarea></div>
       </div>
       <div class="panel panel-default">
         <div class="panel-heading">Payload</div>
-        <div class="panel-body"><pre contenteditable="true" class="jwtPayload" (click)="base64Encode('harm')">{{jwt.payloadJSONPretty}}</pre></div>
+        <div class="panel-body"><textarea id="payload" spellcheck="false" class="jwtPayload" (click)="base64Encode('harm')">{{jwt.payloadJSONPretty}}</textarea></div>
       </div>
       <div class="panel panel-default">
         <div class="panel-heading">Correct signature</div>

@@ -41,3 +41,13 @@ pre {
 .jwtSeperator{
   color: black;
 }
+
+#header.jwtHeader, #payload.jwtPayload{
+  width: 100%;
+  height: 10em;
+  resize: none;
+  border: none;
+  outline: none;
+  padding: 0px;
+  font-family: monospace;
+}

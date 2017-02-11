@@ -23,7 +23,7 @@ export class Jwt {
     this.headerJSON = JSON.parse(this.jwtHelper.urlBase64Decode(this.header));
     this.payload = token.split('.')[1];
     this.payloadJSON = JSON.parse(this.jwtHelper.urlBase64Decode(this.payload));
-    this.payloadJSONPretty = JSON.stringify(this.payloadJSON);
+    this.payloadJSONPretty = JSON.stringify(this.payloadJSON,null,2);
     this.signature = token.split('.')[2];
     this.tokenExpirationDate = this.jwtHelper.getTokenExpirationDate(token);
     this.isTokenExpired = this.jwtHelper.isTokenExpired(token);
