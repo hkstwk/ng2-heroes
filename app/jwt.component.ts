@@ -32,13 +32,19 @@ export class JwtComponent {
       this.headerJSON = JSON.parse(this.jwtHelper.urlBase64Decode(this.header));
       this.payload = this.token.split('.')[1];
       this.payloadJSON = JSON.parse(this.jwtHelper.urlBase64Decode(this.payload));
-      this.payloadJSONPretty = JSON.stringify(this.payloadJSON, null, 4);
+      this.payloadJSON ["hko"] = "got you!";
+      this.payloadJSONPretty = JSON.stringify(this.payloadJSON);
       this.signature = this.token.split('.')[2];
       this.tokenExpirationDate = this.jwtHelper.getTokenExpirationDate(this.token);
       this.isTokenExpired = this.jwtHelper.isTokenExpired(this.token);
 
       this.isValid = this.verifyToken(this.token);
     };
+  }
+
+  base64Encode(str2Encode : string) {
+    console.log(str2Encode + " ==> base64 encode is " + btoa(this.payloadJSONPretty));
+    return btoa(str2Encode);
   }
 
   verifyToken(token: any) : boolean {
