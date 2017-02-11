@@ -1,6 +1,7 @@
 import {Auth} from "./auth.service";
 import {Component} from "@angular/core";
 import {JwtHelper} from 'angular2-jwt';
+import {Jwt} from './jwt';
 
 @Component({
   moduleId: module.id,
@@ -12,46 +13,25 @@ import {JwtHelper} from 'angular2-jwt';
 
 
 export class JwtComponent {
-  private token : any;
-  private header: any;
-  private headerJSON: any;
-  private payload: any;
-  private payloadJSON: any;
-  private payloadJSONPretty: any;
-  private signature: any;
-  private tokenExpirationDate: any;
-  private isTokenExpired: boolean;
-  private isValid: boolean;
-  private receivedSignature: any;
+  private jwt : Jwt;
 
-  private jwtHelper: JwtHelper = new JwtHelper();
+  private receivedSignature: string;
 
   constructor(private auth: Auth){
-    if (this.token = localStorage.getItem('id_token')){
-      this.header = this.token.split('.')[0];
-      this.headerJSON = JSON.parse(this.jwtHelper.urlBase64Decode(this.header));
-      this.payload = this.token.split('.')[1];
-      this.payloadJSON = JSON.parse(this.jwtHelper.urlBase64Decode(this.payload));
-      this.payloadJSON ["hko"] = "got you!";
-      this.payloadJSONPretty = JSON.stringify(this.payloadJSON);
-      this.signature = this.token.split('.')[2];
-      this.tokenExpirationDate = this.jwtHelper.getTokenExpirationDate(this.token);
-      this.isTokenExpired = this.jwtHelper.isTokenExpired(this.token);
-
-      this.isValid = this.verifyToken(this.token);
-    };
+    this.jwt = new Jwt(localStorage.getItem('id_token'));
+    this.jwt.isValid = this.verifyToken(this.jwt.token);
   }
 
   base64Encode(str2Encode : string) {
-    console.log(str2Encode + " ==> base64 encode is " + btoa(this.payloadJSONPretty));
+    console.log(str2Encode + " ==> base64 encode is " + btoa(this.jwt.payloadJSONPretty));
     return btoa(str2Encode);
   }
 
-  verifyToken(token: any) : boolean {
-    var cryptoJS = require("../node_modules/crypto-js/crypto-js.js");
+  verifyToken(token: string) : boolean {
+    let cryptoJS = require("../node_modules/crypto-js/crypto-js.js");
 
-    var header = token.split('.')[0];
-    var payload = token.split('.')[1];
+    let header = token.split('.')[0];
+    let payload = token.split('.')[1];
 
     this.receivedSignature =
       cryptoJS.HmacSHA256(
@@ -62,11 +42,11 @@ export class JwtComponent {
         .replace(/\//g,"_").replace(/\+/g,"-").replace(/=+$/g,"")
       ;
 
-    return (this.signature == this.receivedSignature);
+    return (this.jwt.signature == this.receivedSignature);
   }
 
   toggle(){
-    this.isValid = !this.isValid;
+    this.jwt.isValid = !this.jwt.isValid;
   }
 
 }

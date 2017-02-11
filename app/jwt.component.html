@@ -7,16 +7,16 @@
       <div class="panel panel-default">
         <div class="panel-heading">JSON Web Token</div>
         <div contenteditable id="tokenPanel" class="panel-body">
-          <span class="jwtHeader">{{header}}</span><span class="jwtSeperator">.</span><span class="jwtPayload">{{payload}}</span><span class="jwtSeperator">.</span><span class="jwtSignature">{{signature}}</span>
+          <span class="jwtHeader">{{jwt.header}}</span><span class="jwtSeperator">.</span><span class="jwtPayload">{{jwt.payload}}</span><span class="jwtSeperator">.</span><span class="jwtSignature">{{jwt.signature}}</span>
         </div>
       </div>
       <div class="panel panel-default">
         <div class="panel-heading">Expiration date</div>
-        <div class="panel-body">{{tokenExpirationDate}}</div>
+        <div class="panel-body">{{jwt.tokenExpirationDate}}</div>
       </div>
       <div class="panel panel-default">
         <div class="panel-heading">Expired?</div>
-        <div class="panel-body">{{isTokenExpired}}</div>
+        <div class="panel-body">{{jwt.isTokenExpired}}</div>
       </div>
       <div class="panel panel-default">
         <div class="panel-heading">Received signature</div>
@@ -26,26 +26,26 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">Header</div>
-        <div contenteditable class="panel-body"><pre class="jwtHeader">{{headerJSON | json}}</pre></div>
+        <div contenteditable class="panel-body"><pre class="jwtHeader">{{jwt.headerJSON | json}}</pre></div>
       </div>
       <div class="panel panel-default">
         <div class="panel-heading">Payload</div>
-        <div class="panel-body"><pre contenteditable="true" class="jwtPayload" (click)="base64Encode('harm')">{{payloadJSONPretty}}</pre></div>
+        <div class="panel-body"><pre contenteditable="true" class="jwtPayload" (click)="base64Encode('harm')">{{jwt.payloadJSONPretty}}</pre></div>
       </div>
       <div class="panel panel-default">
         <div class="panel-heading">Correct signature</div>
-        <div class="panel-body"><pre class="jwtSignature">{{signature}}</pre></div>
+        <div class="panel-body"><pre class="jwtSignature">{{jwt.signature}}</pre></div>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
-        <div *ngIf="isValid" class="panel-body panel-body-signature">
+        <div *ngIf="jwt.isValid" class="panel-body panel-body-signature">
           <span class="glyphicon glyphicon-ok-circle"></span>
           valid signature
         </div>
-        <div *ngIf="!isValid" class="panel-body panel-body-signature-nok">
+        <div *ngIf="!jwt.isValid" class="panel-body panel-body-signature-nok">
           <span class="glyphicon glyphicon-remove-circle"></span>
           invalid signature
         </div>
