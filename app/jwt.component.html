@@ -30,7 +30,7 @@
       </div>
       <div class="panel panel-default">
         <div class="panel-heading">Payload</div>
-        <div class="panel-body"><textarea id="payload" spellcheck="false" class="jwtPayload" (click)="base64Encode('harm')">{{jwt.payloadJSONPretty}}</textarea></div>
+        <div class="panel-body"><textarea id="payload" spellcheck="false" class="jwtPayload" (input)="base64Encode('harm');toggle()">{{jwt.payloadJSONPretty}}</textarea></div>
       </div>
       <div class="panel panel-default">
         <div class="panel-heading">Correct signature</div>
