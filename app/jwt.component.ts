@@ -1,7 +1,6 @@
 import {Auth} from "./auth.service";
 import {Component} from "@angular/core";
-import {JwtHelper} from 'angular2-jwt';
-import {Jwt} from './jwt';
+import {Jwt} from "./jwt";
 
 @Component({
   moduleId: module.id,
@@ -9,8 +8,6 @@ import {Jwt} from './jwt';
   templateUrl: 'jwt.component.html',
   styleUrls: [ 'jwt.component.css' ],
 })
-
-
 
 export class JwtComponent {
   private jwt : Jwt;
@@ -25,6 +22,12 @@ export class JwtComponent {
   base64Encode() {
     let changedPayload = this.jwt.payloadJSONPretty.replace(/\s/g, '');
     this.jwt.payload = btoa(changedPayload).replace(/\//g,"_").replace(/\+/g,"-").replace(/=+$/g,"");
+    this.jwt.isValid = this.verifyToken(this.jwt.token);
+  }
+
+  base64EncodeHeader() {
+    let changedHeader = this.jwt.headerJSONPretty.replace(/\s/g, '');
+    this.jwt.header = btoa(changedHeader).replace(/\//g,"_").replace(/\+/g,"-").replace(/=+$/g,"");
     this.jwt.isValid = this.verifyToken(this.jwt.token);
   }
 

@@ -5,6 +5,7 @@ export class Jwt {
 
   header: string;
   headerJSON: JSON;
+  headerJSONPretty: string;
   payload: string;
   payloadJSON: JSON;
   payloadJSONPretty: string;
@@ -21,6 +22,7 @@ export class Jwt {
     // fields derived from original token
     this.header = token.split('.')[0];
     this.headerJSON = JSON.parse(this.jwtHelper.urlBase64Decode(this.header));
+    this.headerJSONPretty = JSON.stringify(this.headerJSON,null,2);
     this.payload = token.split('.')[1];
     this.payloadJSON = JSON.parse(this.jwtHelper.urlBase64Decode(this.payload));
     this.payloadJSONPretty = JSON.stringify(this.payloadJSON,null,2);

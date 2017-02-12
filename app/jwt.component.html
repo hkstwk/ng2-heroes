@@ -26,7 +26,7 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-heading">Header</div>
-        <div class="panel-body"><textarea id="header" spellcheck="false" class="jwtHeader">{{jwt.headerJSON | json}}</textarea></div>
+        <div class="panel-body"><textarea id="header" spellcheck="false" class="jwtHeader" [(ngModel)]="jwt.headerJSONPretty" (input)="base64EncodeHeader()"></textarea></div>
       </div>
       <div class="panel panel-default">
         <div class="panel-heading">Payload</div>
