@@ -12,7 +12,8 @@
           <button class="btn btn-default"
                   type="button"
                   (click)="add(heroName.value); heroName.value=''"
-                  (keyup)="add(heroName.value); heroName.value=''">
+                  (keyup)="add(heroName.value); heroName.value=''"
+                  data-toggle="tooltip" title="Save...">
             <i class="glyphicon glyphicon-save"></i>
           </button>
         </span>
